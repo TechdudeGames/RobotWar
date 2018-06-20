@@ -68,10 +68,11 @@ while totalup(rtstatlist,3,avcores) != number_of_total_games//avcores * avcores:
             print("There have been %i draws" %totalup(rtstatlist,2,avcores))
             print("The game has been played %i times" %totalup(rtstatlist,3,avcores))
             elapsted_seconds = time.time()-starttime
-            days = int(elapsted_seconds//86400)
-            hours = int(elapsted_seconds//3600 - days * 24)
-            minutes = int(elapsted_seconds//60 - hours * 60)
-            seconds = int(elapsted_seconds - minutes * 60)
+            #elapsted_seconds = 602263 #Debug time amount. Should be 6 days, 23 hours, 17 minutes, and 43 seconds
+            days = int(elapsted_seconds // 86400)
+            hours = int(elapsted_seconds // 3600 - (days * 24))
+            minutes = int(elapsted_seconds // 60 - (hours * 60) - (days * 1440))
+            seconds = int(elapsted_seconds - (minutes * 60) - (hours * 3600) - (days * 86400))
             print("Time Elapsed: ", days, ":", hours, ":", minutes, ":", seconds)
 os.system("clear")
 with term.location(0, 10):
@@ -86,8 +87,8 @@ with term.location(0, 10):
     print("There have been %i draws" % totalup(rtstatlist, 2, avcores))
     print("The game has been played %i times" % totalup(rtstatlist, 3, avcores))
     elapsted_seconds = time.time() - starttime
-    days = int(elapsted_seconds // 86400)
-    hours = int(elapsted_seconds // 3600 - (days * 24))
-    minutes = int(elapsted_seconds // 60 - (hours * 60) - (days * 1440))
-    seconds = int(elapsted_seconds - (minutes * 60) - (hours * 3600) - (days * 86400))
+    days = int(elapsted_seconds//86400)
+    hours = int(elapsted_seconds//3600 - (days * 24))
+    minutes = int(elapsted_seconds//60 - (hours * 60) - (days  * 1440))
+    seconds = int(elapsted_seconds - (minutes * 60) - (hours * 3600) - (days * 86400) )
     print("Time Elapsed: ", days, " : ", hours, " : ", minutes, " : ", seconds)
