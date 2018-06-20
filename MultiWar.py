@@ -87,7 +87,7 @@ with term.location(0, 10):
     print("The game has been played %i times" % totalup(rtstatlist, 3, avcores))
     elapsted_seconds = time.time() - starttime
     days = int(elapsted_seconds // 86400)
-    hours = int(elapsted_seconds // 3600 - days * 24)
-    minutes = int(elapsted_seconds // 60 - hours * 60)
-    seconds = int(elapsted_seconds - minutes * 60)
-    print("Time Elapsed: ", days,"  ", ":", hours, "  ", ":", minutes,  "  ", ":", seconds, "  ")
+    hours = int(elapsted_seconds // 3600 - (days * 24))
+    minutes = int(elapsted_seconds // 60 - (hours * 60) - (days * 1440))
+    seconds = int(elapsted_seconds - (minutes * 60) - (hours * 3600) - (days * 86400))
+    print("Time Elapsed: ", days, " : ", hours, " : ", minutes, " : ", seconds)
